@@ -1,0 +1,33 @@
+_schema-version: '2.0'
+ID: dev602
+description: dev602
+version: 0.0.1
+
+modules:
+ - name: web
+   type: html5
+   path: web
+   requires:
+     - name: dev602_06-uaa
+
+
+ 
+
+
+ - name: db
+   type: hdb
+   path: db
+   requires:
+    - name: hdi-container
+
+resources:
+  - name: dev602_06-uaa
+    type: com.sap.xs.uaa
+    parameters:
+      config_path: ./xs-security.json
+
+
+  - name: hdi-container
+    properties:
+       hdi-container-name_2: ${service-name}
+    type: com.sap.xs.hdi-container
